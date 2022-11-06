@@ -9,15 +9,21 @@ namespace PoSSapi.Controllers
     [Route("[controller]")]
     public class ShiftController : ControllerBase
     {
-        // PUT api/<ShiftController>/5
-        [HttpPut("{name}")]
+        // GET Shift/5
+        [HttpGet("{id}")]
+        public ActionResult Get(string id)
+        {
+            return Ok(Shift.GenerateRandom(id));
+        }
+        // PUT <ShiftController>/5
+        [HttpPut("{id}")]
         public ActionResult Put(string id, [FromBody] Shift shift)
         {
             return Ok();
         }
 
-        // DELETE api/<ShiftController>/5
-        [HttpDelete("{name}")]
+        // DELETE <ShiftController>/5
+        [HttpDelete("{id}")]
         public ActionResult Delete(string id)
         {
             return Ok();
