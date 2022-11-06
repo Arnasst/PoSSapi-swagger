@@ -15,6 +15,7 @@ namespace PoSSapi.Controllers
         {
             return Ok(Shift.GenerateRandom(id));
         }
+
         // PUT <ShiftController>/5
         [HttpPut("{id}")]
         public ActionResult Put(string id, [FromBody] Shift shift)
