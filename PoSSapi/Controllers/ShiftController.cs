@@ -9,6 +9,16 @@ namespace PoSSapi.Controllers
     [Route("[controller]")]
     public class ShiftController : ControllerBase
     {
+        // GET Shift
+        [HttpGet]
+        public ActionResult<Shift> Get()
+        {
+            // Return a list of shifts
+            var shiftList = new List<Shift>();
+            shiftList.Append(Shift.GenerateRandom());
+            return Ok(shiftList);
+        }
+
         // GET Shift/5
         [HttpGet("{id}")]
         public ActionResult Get(string id)
@@ -20,7 +30,7 @@ namespace PoSSapi.Controllers
         [HttpPost]
         public ActionResult Post([FromBody] Shift shift)
         {
-            return CreatedAtAction(nameof(Post), new { id = shift.Id }, shift);
+            return CreatedAtAction(nameof(Get), new { id = shift.Id }, shift);
         }
 
         // PUT <ShiftController>/5
