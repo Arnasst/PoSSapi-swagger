@@ -9,7 +9,7 @@ namespace PoSSapi.Controllers
     [Route("[controller]")]
     public class ShiftController : ControllerBase
     {
-        // GET Shift
+        // GET /Shift
         [HttpGet]
         public ActionResult<Shift> Get()
         {
@@ -19,28 +19,28 @@ namespace PoSSapi.Controllers
             return Ok(shiftList);
         }
 
-        // GET Shift/5
+        // GET /Shift/5
         [HttpGet("{id}")]
         public ActionResult Get(string id)
         {
             return Ok(Shift.GenerateRandom(id));
         }
 
-        // POST Shift
+        // POST /Shift
         [HttpPost]
         public ActionResult Post([FromBody] Shift shift)
         {
             return CreatedAtAction(nameof(Get), new { id = shift.Id }, shift);
         }
 
-        // PUT <ShiftController>/5
+        // PUT /Shift/5
         [HttpPut("{id}")]
         public ActionResult Put(string id, [FromBody] Shift shift)
         {
             return Ok();
         }
 
-        // DELETE <ShiftController>/5
+        // DELETE /Shift/5
         [HttpDelete("{id}")]
         public ActionResult Delete(string id)
         {
