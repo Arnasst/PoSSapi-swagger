@@ -10,8 +10,7 @@ namespace PoSSapi.Controllers
         [HttpGet]
         public ActionResult Get()
         {
-            var objectList = new List<T>();
-            objectList.Append(RandomGenerator.GenerateRandom<T>());
+            var objectList = new T[] { RandomGenerator.GenerateRandom<T>() };
             return Ok(objectList);
         }
 
