@@ -13,6 +13,6 @@ public class Employee
     public bool IsManager { get; set; }
     public string Email { get; set; }
     public string Phone { get; set; }
-    public Location Location { get; set; }
-    public List<Client> Clients { get; set; }
+    public string LocationId { get; set; }
+    public List<string> Clients { get; set; }
 }
