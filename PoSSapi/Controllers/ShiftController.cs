@@ -8,11 +8,14 @@ namespace PoSSapi.Controllers
     [Route("[controller]")]
     public class ShiftController : GenericController<Shift>
     {
-        [HttpGet("{employee_id}")]
-        public ActionResult Get(string employee_id)
+        [HttpGet()]
+        public ActionResult GetAll([FromQuery] string? employeeId)
         {
             var objectList = new Shift[] { RandomGenerator.GenerateRandom<Shift>() };
-            objectList[0].EmployeeId = employee_id;
+            if (employeeId != null)
+            {
+                objectList[0].EmployeeId = employeeId;
+            }
             return Ok(objectList);
         }
     }

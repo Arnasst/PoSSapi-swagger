@@ -7,13 +7,6 @@ namespace PoSSapi.Controllers
 {
     public abstract class GenericController<T>: ControllerBase where T: new()
     {
-        [HttpGet]
-        public ActionResult Get()
-        {
-            var objectList = new T[] { RandomGenerator.GenerateRandom<T>() };
-            return Ok(objectList);
-        }
-
         [HttpGet("{id}")]
         public ActionResult Get(string id)
         {

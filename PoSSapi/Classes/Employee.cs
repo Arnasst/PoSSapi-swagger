@@ -14,5 +14,5 @@ public class Employee
     public string Email { get; set; }
     public string Phone { get; set; }
     public string LocationId { get; set; }
-    public List<string> Clients { get; set; }
+    public string Client { get; set; }
 }

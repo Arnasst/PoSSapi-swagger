@@ -41,6 +41,9 @@
                         case Type t when t == typeof(Enum):
                             property.SetValue(instance, Enum.GetValues(property.PropertyType).GetValue(random.Next(0, Enum.GetValues(property.PropertyType).Length)));
                             break;
+                        case Type t when t == typeof(Decimal):
+                            property.SetValue(instance, (decimal)random.NextDouble());
+                            break;
                         default:
                             property.SetValue(instance, null);
                             break;
