@@ -6,7 +6,6 @@ public class Product
     public string Name { get; set; }
     public decimal Price { get; set; }
     public decimal Tax { get; set; }
-    public string DiscountId { get; set; }
     public string CategoryId { get; set; }
     public string LocationId { get; set; }
 }
