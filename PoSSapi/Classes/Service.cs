@@ -8,4 +8,5 @@ public class Service
     public decimal Price { get; set; }
     public Object Duration { get; set; } //Not specified in the diagram
     public Category Category { get; set; }
+    public string Location { get; set; }
 }

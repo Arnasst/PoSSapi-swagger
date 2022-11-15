@@ -8,4 +8,5 @@ public class Product
     public decimal Tax { get; set; }
     public Discount Discount { get; set; }
     public Category Category { get; set; }
+    public string LocationId { get; set; }
 }
