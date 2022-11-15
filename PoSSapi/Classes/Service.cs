@@ -8,5 +8,5 @@ public class Service
     public decimal Price { get; set; }
     public int Duration { get; set; } // in minutes
     public string CategoryId { get; set; }
-    public string Location { get; set; }
+    public string LocationId { get; set; }
 }
