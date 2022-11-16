@@ -25,8 +25,8 @@ namespace PoSSapi.Controllers
 
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [HttpPatch("{id}")]
-        public ActionResult Patch(string id, [FromBody] T updatedObject)
+        [HttpPut("{id}")]
+        public ActionResult Put(string id, [FromBody] T updatedObject)
         {
             return Ok();
         }
