@@ -35,10 +35,10 @@ public class ServiceOrderController : GenericController<Order>
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [HttpPatch("{id}")]
-    public ActionResult ChangeStatus(string id, [FromQuery] [Required] OrderStatusState? status)
+    public ActionResult ChangeStatus(string id, [FromQuery] [Required] OrderStatusState status)
     {
         var productOrder = RandomGenerator.GenerateRandom<Order>(id);
-        productOrder.OrderStatus = status ?? OrderStatusState.New;
+        productOrder.OrderStatus = status;
 
         return Ok();
     }
