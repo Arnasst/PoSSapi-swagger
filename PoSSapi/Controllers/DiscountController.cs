@@ -10,6 +10,7 @@ namespace PoSSapi.Controllers
     public class DiscountController : GenericController<Discount>
     {
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpGet()]
         public ActionResult GetAll([FromQuery] DiscountTargetType? discountTarget, [FromQuery] string? targetId,
              [FromQuery] int itemsPerPage=10, [FromQuery] int pageNum=0)
@@ -17,6 +18,10 @@ namespace PoSSapi.Controllers
             if (itemsPerPage <= 0)
             {
                 return BadRequest("itemsPerPage must be greater than 0");
+            }
+            if (pageNum < 0)
+            {
+                return BadRequest("pageNum must be greater than or equal to 0");
             }
 
             var objectList = new Discount[itemsPerPage];

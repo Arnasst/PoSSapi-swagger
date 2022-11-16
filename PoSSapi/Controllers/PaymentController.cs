@@ -10,6 +10,7 @@ namespace PoSSapi.Controllers
     public class PaymentController : GenericController<Payment>
     {
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpGet()]
         public ActionResult GetAll([FromQuery] string? orderId,
             [FromQuery] int itemsPerPage=10, [FromQuery] int pageNum=0)
@@ -17,6 +18,10 @@ namespace PoSSapi.Controllers
             if (itemsPerPage <= 0)
             {
                 return BadRequest("itemsPerPage must be greater than 0");
+            }
+            if (pageNum < 0)
+            {
+                return BadRequest("pageNum must be greater than or equal to 0");
             }
 
             var objectList = new Payment[itemsPerPage];
@@ -28,10 +33,7 @@ namespace PoSSapi.Controllers
                     objectList[i].OrderId = orderId;
                 }
             }
-            if (orderId != null)
-            {
-                objectList[0].OrderId = orderId;
-            }
+
             return Ok(objectList);
         }
     }
