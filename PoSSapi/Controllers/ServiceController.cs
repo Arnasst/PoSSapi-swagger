@@ -18,9 +18,12 @@ public class ServiceController : GenericController<Service>
         {
             return BadRequest("Invalid itemsPerPage or pageNum");
         }
+        
+        int totalItems = 20;  
+        int itemsToDisplay = ControllerTools.calculateItemsToDisplay(itemsPerPage, pageNum, totalItems);
 
-        var objectList = new Service[itemsPerPage];
-        for (var i = 0; i < itemsPerPage; i++)
+        var objectList = new Service[itemsToDisplay];
+        for (var i = 0; i < itemsToDisplay; i++)
         {
             objectList[i] = RandomGenerator.GenerateRandom<Service>();
             
@@ -35,6 +38,7 @@ public class ServiceController : GenericController<Service>
             }
         }
         
-        return Ok(objectList);
+        ReturnObject returnObject = new ReturnObject {totalItems = totalItems, itemList = objectList};
+        return Ok(returnObject);
     }
 }
