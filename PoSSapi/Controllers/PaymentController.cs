@@ -75,5 +75,16 @@ public class PaymentController : GenericController<Payment>
     {
         return Ok();
     }
+
+    /** <summary>Returns a check</summary>
+    * <param name="id" example="">Id of the payment that you want the check of</param>
+    */
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [HttpGet("{id}/check")]
+    public ActionResult GetCheck(string id)
+    {
+        return Ok();
+    }
 }
 
