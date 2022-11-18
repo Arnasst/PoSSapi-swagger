@@ -69,7 +69,7 @@ public class PaymentController : GenericController<Payment>
     * <param name="customerId" example="">Id of the customer whose recieving the invoice</param>
     */
     [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     [HttpPost("{id}/invoice/{customerId}")]
     public ActionResult SendInvoiceToCustomer(string id, string customerId)
     {
