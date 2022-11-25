@@ -8,7 +8,7 @@ namespace PoSSapi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class ServiceOrderController : GenericController<Order>
+public class orderServiceController : GenericController<Order>
 {
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
