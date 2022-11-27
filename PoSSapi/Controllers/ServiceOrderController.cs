@@ -82,7 +82,7 @@ public class ServiceOrderController : GenericController<Order>
         return Ok();
     }
     
-    /** <summary>Edit an order service in an existing order</summary>
+    /** <summary>Edit order services in an existing order</summary>
      * <param name="id">Id of the service order that you want to edit an order service in</param>
      * <param name="orderServices">Order services in body to edit in the service order</param>
      */

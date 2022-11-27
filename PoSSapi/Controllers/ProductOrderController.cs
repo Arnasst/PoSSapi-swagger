@@ -82,7 +82,7 @@ public class ProductOrderController : GenericController<ProductOrder>
         return Ok();
     }
     
-    /** <summary>Edit an order product in an existing order</summary>
+    /** <summary>Edit order products in an existing order</summary>
      * <param name="id">Id of the product order that you want to edit an order product in</param>
      * <param name="orderProducts">Order products in body to edit in the product order</param>
      */
