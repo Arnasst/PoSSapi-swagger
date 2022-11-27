@@ -10,7 +10,13 @@ namespace PoSSapi.Controllers;
 [Route("[controller]")]
 public class ProductOrderController : GenericController<ProductOrder>
 {
-    [ProducesResponseType(StatusCodes.Status200OK)]
+    protected class OrderProductReturnObject
+    {
+        public int totalItems { get; set; }
+        public Shift[] itemList { get; set; }
+    }
+    
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ReturnObject))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [HttpGet]
     public ActionResult GetAll([FromQuery] string? locationId, [FromQuery] OrderStatusState? status,
@@ -56,7 +62,7 @@ public class ProductOrderController : GenericController<ProductOrder>
      * <param name="itemsPerPage">Number of order products returned in the response</param>
      * <param name="pageNum">Number of the chunk of order products returned in the response</param>
      */
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(OrderProduct[]))]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(OrderProductReturnObject[]))]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [HttpGet("{id}/orderProducts")]
     public ActionResult GetOrderProducts(string id, [FromQuery] int itemsPerPage = 10, [FromQuery] int pageNum = 0)
