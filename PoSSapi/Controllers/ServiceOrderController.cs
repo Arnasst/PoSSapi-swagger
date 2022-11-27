@@ -68,8 +68,7 @@ public class ServiceOrderController : GenericController<Order>
      * <param name="id">Id of the service order that you want to add services to</param>
      * <param name="orderServices">Order service list in body to add to the service order</param>
      */
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(OrderService[]))]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [HttpPost("{id}/orderServices")]
     public ActionResult PostOrderServices(string id, [FromBody] OrderService[] orderServices)
@@ -79,13 +78,12 @@ public class ServiceOrderController : GenericController<Order>
     
     /** <summary>Edit an order service in an existing order</summary>
      * <param name="id">Id of the service order that you want to edit an order service in</param>
-     * <param name="orderService">Order service in body to edit in the service order</param>
+     * <param name="orderServices">Order services in body to edit in the service order</param>
      */
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(OrderService[]))]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [HttpPut("{id}/orderServices")]
-    public ActionResult PutOrderService(string id, [FromBody] OrderService orderService)
+    public ActionResult PutOrderServices(string id, [FromBody] OrderService[] orderServices)
     {
         return Ok();
     }
@@ -94,7 +92,7 @@ public class ServiceOrderController : GenericController<Order>
      * <param name="id">Id of the service order that you want to remove a service from</param>
      * <param name="orderServiceId">Id of the order service to remove from the service order</param>
      */
-    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [HttpDelete("{id}/orderServices/{orderServiceId}")]
     public ActionResult DeleteOrderService(string id, string orderServiceId)
